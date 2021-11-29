@@ -5,7 +5,7 @@ class NeuralNetwork:
     def __init__(self):
         np.random.seed(1)
 
-        self.synaptic_weights = 2 * np.random.random((3, 1)) - 1
+        self.synaptic_weights = 2 * np.random.random((14, 10)) - 1
 
     def string_input(
         self, outlook="sunny", temperature="hot", humidity="high", wind="strong"
