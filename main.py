@@ -5,7 +5,7 @@ class NeuralNetwork:
     def __init__(self):
         np.random.seed(1)
 
-        self.synaptic_weights = 2 * np.random.random((10, 14)) - 1
+        self.synaptic_weights = 2 * np.random.random((10, 1)) - 1
 
     def string_input(
         self, outlook="sunny", temperature="hot", humidity="high", wind="strong"
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     neural_network.train(
         training_inputs=training_inputs,
         training_outputs=training_outputs,
-        training_iterations=10000,
+        training_iterations=100000,
     )
 
     while True:
