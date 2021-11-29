@@ -5,7 +5,7 @@ class NeuralNetwork:
     def __init__(self):
         np.random.seed(1)
 
-        self.synaptic_weights = 2 * np.random.random((14, 10)) - 1
+        self.synaptic_weights = 2 * np.random.random((10, 14)) - 1
 
     def string_input(
         self, outlook="sunny", temperature="hot", humidity="high", wind="strong"
@@ -136,14 +136,29 @@ if __name__ == "__main__":
         ]
     ).T
 
+    neural_network.train(
+        training_inputs=training_inputs,
+        training_outputs=training_outputs,
+        training_iterations=10000,
+    )
+
     while True:
         outlook = input("\nInput Outlook : ")
         temperature = input("Input Temperature : ")
         humidity = input("Input Humidity : ")
         wind = input("Input Wind : ")
 
+        inputs = np.array(
+            neural_network.string_input(
+                outlook=outlook,
+                humidity=humidity,
+                temperature=temperature,
+                wind=wind,
+            )
+        )
+
         print(f"\nInputs = {outlook}, {temperature}, {humidity}, {wind}")
-        print("Play = {0}")
+        print(f"Play = {neural_network.think(inputs=inputs)}")
 
         while True:
             repeat = input("\nDo you want try again? y/n : ").lower()
