@@ -135,3 +135,14 @@ if __name__ == "__main__":
             ]
         ]
     ).T
+    
+    while(True):
+        outlook = input("\nInput Outlook: ")
+        temperature = input("Input Temperature: ")
+        humidity = input("Input Humidity: ")
+        wind = input("Input Wind: ")
+
+        print(f"\nInputs = {outlook}, {temperature}, {humidity}, {wind}")
+        print("Play = {0}")
+
+    
